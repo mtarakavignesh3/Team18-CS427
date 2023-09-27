@@ -10,7 +10,7 @@ The code for CS427 Android app.
 | Taraka Vignesh Mullapudi              |    tvm3           |   mtarakavignesh3           |              |               |            
 |    Aabha Vyas           |     aabhav2          |    aabhav2         |               |               |
 |      Manikandan Nagarathnam         |   mnn3            |      manin3       |               |               |
-|               |               |             |               |               |
+|  David Valencia              |  dvalen25             |    svalenciadavid         |               |               |
 |               |               |             |               |               |
 |               |               |             |               |               |
 |               |               |             |               |               |
