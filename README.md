@@ -11,8 +11,7 @@ The code for CS427 Android app.
 |    Aabha Vyas           |     aabhav2          |    aabhav2         |               |               |
 |      Manikandan Nagarathnam         |   mnn3            |      manin3       |               |               |
 |  David Valencia              |  dvalen25             |    svalenciadavid         |               |               |
-|   Allen Wenzl
-             |    wenzl2           |   wenzla          |               |               |
+|   Allen Wenzl |wenzl2 | wenzla  |           |               |
 |               |               |             |               |               |
 |               |               |             |               |               |
 |               |               |             |               |               |
