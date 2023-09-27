@@ -7,11 +7,11 @@ The code for CS427 Android app.
 <br/>
 | Name          | NetID         | GitHub ID   | Role          | Experience    |
 | ------------- | ------------- | ------------| ------------- | ------------- |
-| Taraka Vignesh Mullapudi              |    tvm3           |   mtarakavignesh3           |              |               |            
-|    Aabha Vyas           |     aabhav2          |    aabhav2         |               |               |
-|      Manikandan Nagarathnam         |   mnn3            |      manin3       |               |               |
-|  David Valencia              |  dvalen25             |    svalenciadavid         |               |               |
-|   Allen Wenzl |wenzl2 | wenzla  |           |               |
+| Taraka Vignesh Mullapudi              |    tvm3           |   mtarakavignesh3           |      Manager        |       Python, C++        |            
+|    Aabha Vyas           |     aabhav2          |    aabhav2         |     Tech Lead          |    Python, Java           |
+|      Manikandan Nagarathnam         |   mnn3            |      manin3       |    Developer           |        Python, C++       |
+|  David Valencia              |  dvalen25             |    svalenciadavid         |     Developer          |    Python, C++           |
+|   Allen Wenzl |wenzl2 | wenzla  |    Developer       |               |
 |               |               |             |               |               |
 |               |               |             |               |               |
 |               |               |             |               |               |
@@ -21,9 +21,9 @@ The code for CS427 Android app.
 <b>Weekly Progress Reports</b>
 </br> 
 </br>
-Meeting time: 
+Meeting time: Tuesday, 5PM
 </br> 
-Meeting location (zoom link):
+Meeting location (zoom link): https://illinois.zoom.us/j/84209363787?pwd=VUpxK1doQTNtMUwxaFVaTjJOZm9FZz09
 </br> 
 </br>
 <b>Week 1</b>
@@ -34,11 +34,11 @@ Meeting notes: Explain the overall team progress and a summary of discussion
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|     tvm3           |                                 |   Complete Milestone 1 successful build screenshots                    |
+|   aabhav2             |                                 |  Complete Milestone 1 successful build screenshots                     |
+|    mnn3            |                                 |    Complete Milestone 1 successful build screenshots                   |
+|    dvalen25             |                                 |       Complete Milestone 1 successful build screenshots                |
+|     wenzl2           |                                 |     Complete Milestone 1 successful build screenshots                  |
 |                |                                 |                       |
 |                |                                 |                       |
 |                |                                 |                       |
