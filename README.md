@@ -12,7 +12,7 @@ The code for CS427 Android app.
 |      Manikandan Nagarathnam         |   mnn3            |      manin3       |    Developer           |        Python, C++       |
 |  David Valencia              |  dvalen25             |    svalenciadavid         |     Developer          |    Python, C++           |
 |   Allen Wenzl |wenzl2 | wenzla  |    Developer       |               |
-|               |               |             |               |               |
+|    Syed Hassan           |      shassa25         |    sahassan012         |    Developer           |    Javascript, Angular, React, Python, Java          |
 |               |               |             |               |               |
 |               |               |             |               |               |
 <br/>
@@ -39,7 +39,7 @@ Meeting notes: Explain the overall team progress and a summary of discussion
 |    mnn3            |                                 |    Complete Milestone 1 successful build screenshots                   |
 |    dvalen25             |                                 |       Complete Milestone 1 successful build screenshots                |
 |     wenzl2           |                                 |     Complete Milestone 1 successful build screenshots                  |
-|                |                                 |                       |
+|     shassa25           |                                 |    Complete Milestone 1 successful build screenshots                   |
 |                |                                 |                       |
 |                |                                 |                       |
 </br>
