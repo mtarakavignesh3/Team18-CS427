@@ -40,7 +40,7 @@ Meeting notes: Explain the overall team progress and a summary of discussion
 |    dvalen25             |                                 |       Complete Milestone 1 successful build screenshots                |
 |     wenzl2           |                                 |     Complete Milestone 1 successful build screenshots                  |
 |     shassa25           |                                 |    Complete Milestone 1 successful build screenshots                   |
-|                |                                 |                       |
+|   yujiaq5             |                                 |    Complete Milestone 1 successful build screenshots                   |
 |                |                                 |                       |
 </br>
 
