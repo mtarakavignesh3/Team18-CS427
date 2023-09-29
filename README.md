@@ -13,7 +13,7 @@ The code for CS427 Android app.
 |  David Valencia              |  dvalen25             |    svalenciadavid         |     Developer          |    Python, C++           |
 |   Allen Wenzl |wenzl2 | wenzla  |    Developer       |               |
 |    Syed Hassan           |      shassa25         |    sahassan012         |    Developer           |    Javascript, Angular, React, Python, Java          |
-|               |               |             |               |               |
+|   Yujia       |  yujiaq5      |  YujiaQiu    |    Developer     |    Java, Python      |
 |               |               |             |               |               |
 <br/>
 
