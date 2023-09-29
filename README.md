@@ -11,7 +11,7 @@ The code for CS427 Android app.
 |    Aabha Vyas           |     aabhav2          |    aabhav2         |     Tech Lead          |    Python, Java           |
 |      Manikandan Nagarathnam         |   mnn3            |      manin3       |    Developer           |        Python, C++       |
 |  David Valencia              |  dvalen25             |    svalenciadavid         |     Developer          |    Python, C++           |
-|   Allen Wenzl |wenzl2 | wenzla  |    Developer       |               |
+|   Allen Wenzl |wenzl2 | wenzla  |    Developer       |       Python, SQL, R     |
 |    Syed Hassan           |      shassa25         |    sahassan012         |    Developer           |    Javascript, Angular, React, Python, Java          |
 |   Yujia Qiu      |  yujiaq5      |  YujiaQiu    |    Developer     |    Java, Python      |
 |               |               |             |               |               |
