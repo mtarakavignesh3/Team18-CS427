@@ -14,7 +14,7 @@ The code for CS427 Android app.
 |   Allen Wenzl |wenzl2 | wenzla  |    Developer       |       Python, SQL, R     |
 |    Syed Hassan           |      shassa25         |    sahassan012         |    Developer           |    Javascript, Angular, React, Python, Java          |
 |   Yujia Qiu      |  yujiaq5      |  YujiaQiu    |    Developer     |    Java, Python      |
-|               |               |             |               |               |
+|    AmyHwang| ahwang22     |  hwangsamy1    |      Developer         |               |
 <br/>
 
 
@@ -28,9 +28,10 @@ Meeting location (zoom link): https://illinois.zoom.us/j/84209363787?pwd=VUpxK1d
 </br>
 <b>Week 1</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: tvm3, aabhav2, mnn3, dvalen25
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: This is the first meeting and we started editing the Github repo,
+added access to TAs, Instructors and Other team members, setup a common meeting time and assigned roles. We also created a google doc to share the screenshots of successful builds.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
@@ -41,7 +42,7 @@ Meeting notes: Explain the overall team progress and a summary of discussion
 |     wenzl2           |                                 |     Complete Milestone 1 successful build screenshots                  |
 |     shassa25           |                                 |    Complete Milestone 1 successful build screenshots                   |
 |   yujiaq5             |                                 |    Complete Milestone 1 successful build screenshots                   |
-|                |                                 |                       |
+|   ahwang22        |                                 |   Complete Milestone 1 successful build screenshots            |
 </br>
 
 
