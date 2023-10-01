@@ -14,7 +14,7 @@ The code for CS427 Android app.
 |   Allen Wenzl |wenzl2 | wenzla  |    Developer       |       Python, SQL, R     |
 |    Syed Hassan           |      shassa25         |    sahassan012         |    Developer           |    Javascript, Angular, React, Python, Java          |
 |   Yujia Qiu      |  yujiaq5      |  YujiaQiu    |    Developer     |    Java, Python      |
-|    AmyHwang| ahwang22     |  hwangsamy1    |      Developer         |               |
+|    AmyHwang| ahwang22     |  hwangsamy1    |      Developer         |     Java, Python          |
 <br/>
 
 
