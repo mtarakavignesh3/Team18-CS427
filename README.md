@@ -48,20 +48,21 @@ added access to TAs, Instructors and Other team members, setup a common meeting 
 
 <b>Week 2</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: tvm3, aabhav2, mnn3, dvalen25, shassa25, yujiaq5, ahwang22
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: All members of the team are ready with the Android Setup up & running.
+In this meeting, we discussed on how to proceed for the next milestone, the goal is to start following the instructions and fill in the document so that next week we can refine it.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|    tvm3            |         Ready with the Setup                        |    Start editing the Document by following the instructions                    |
+|   aabhav2             |    Ready with the Setup                             |    Start editing the Document by following the instructions                   |
+|    mnn3            |           Ready with the Setup                      |          Start editing the Document by following the instructions             |
+|    dvalen25            |       Ready with the Setup                          |       Start editing the Document by following the instructions                |
+|  shassa25              |     Ready with the Setup                            |     Start editing the Document by following the instructions                  |
+|   yujiaq5             |        Ready with the Setup                         |           Start editing the Document by following the instructions            |
+|    ahwang22            |      Ready with the Setup                           |       Start editing the Document by following the instructions                |
+|       wenzl2         |       Ready with the Setup                          |       Start editing the Document by following the instructions                |
 </br>
 
 
