@@ -68,20 +68,20 @@ In this meeting, we discussed on how to proceed for the next milestone, the goal
 
 <b>Week 3</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: tvm3, aabhav2, mnn3, dvalen25, shassa25, yujiaq5, ahwang22, wenzl2
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Milestone 2 work started, Informal Requirements and Use Cases are completed. Resolved few clarifications for Use Cases, discussed the plan of action for next deliverables Class Diagram & Component Transition graph.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|     tvm3            |         Document generated and shared to all members, Informal requirements, Use Cases are done                        |      Check if the document is well in place following the correct format and requirements including all the necessary details, Missing Sections to be completed              |
+|     aabhav2           |      Informal requirements, Use Cases are done                           |         Class Diagram & Component Transition graph to be completed              |
+|     mnn3           |        Informal requirements, Use Cases are done                         |    Class Diagram & Component Transition graph to be completed                   |
+|    dvalen25            |      Informal requirements, Use Cases are done                           |    Class Diagram & Component Transition graph to be completed                   |
+|      shassa25           |      Informal requirements, Use Cases are done                           |     Class Diagram & Component Transition graph to be completed                  |
+|        yujiaq5        |      Informal requirements, Use Cases are done                           |     Class Diagram & Component Transition graph to be completed                  |
+|       ahwang22         |    Informal requirements, Use Cases are done                             |     Class Diagram & Component Transition graph to be completed                  |
+|       wenzl2          |       Informal requirements, Use Cases are done                          |      Class Diagram & Component Transition graph to be completed                 |
 </br>
 
 
