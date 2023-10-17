@@ -89,7 +89,7 @@ Meeting notes: Milestone 2 work started, Informal Requirements and Use Cases are
 </br>
 Members present: tvm3, aabhav2, mnn3, dvalen25, shassa25, yujiaq5, ahwang22, wenzl2
 </br>
-Meeting notes: MileStone2 completed, Discussed a plan on how to implement the first set of features, divided the work between team members. Main Tasks include: Login Page, Cities Page and UI Customisation.
+Meeting notes: MileStone2 completed, Discussed a plan on how to implement the first set of features, divided the work between team members. Main Tasks include: Login Page, Cities Page and UI Customisation. Documentation to be done on the go, while implementing each new feature and final video to be taken after all work.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
