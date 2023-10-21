@@ -6,18 +6,20 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.accounts.AccountManager;
 import android.accounts.Account;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-//    AccountManager mAccountManager = AccountManager.get(getBaseContext());
+    private AccountManager accountManager;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-//        Account[] accounts = mAccountManager.getAccountsByType("test_accounts");
+        accountManager = AccountManager.get(this);
+        Account[] accounts = accountManager.getAccountsByType("edu.uiuc.cs427app");
 
         Button register = findViewById(R.id.register_button);
         register.setOnClickListener(this);
@@ -25,11 +27,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        TextView username = findViewById(R.id.register_username);
-        TextView password = findViewById(R.id.register_password);
+//        TextView username = findViewById(R.id.register_username);
+//        TextView password = findViewById(R.id.register_password);
 
-        Account newAccount = new Account("username", "test_accounts");
-//        mAccountManager.addAccountExplicitly(newAccount, "password", null);
-//        mAccountManager.setAuthToken(newAccount, "test_accounts", "auth_token");
+        Account newAccount = new Account("username", "edu.uiuc.cs427app");
+//        accountManager.addAccountExplicitly(newAccount, "password", null);
+//        accountManager.setAuthToken(newAccount, "test_accounts", "auth_token");
+
+        Toast.makeText(RegisterActivity.this,
+                "Account Registered", Toast.LENGTH_LONG).show();
     }
 }
