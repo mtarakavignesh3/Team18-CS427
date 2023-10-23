@@ -13,34 +13,28 @@ import edu.uiuc.cs427app.databinding.ActivityMainBinding;
 
 import android.widget.Button;
 
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
-    private ArrayList<String> cityList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        cityList = new ArrayList<>();
 
         // Initializing the UI components
         // The list of locations should be customized per user (change the implementation so that
         // buttons are added to layout programmatically
-        //Button buttonChampaign = findViewById(R.id.buttonChampaign);
-        //Button buttonChicago = findViewById(R.id.buttonChicago);
-        //Button buttonLA = findViewById(R.id.buttonLA);
-
-        //buttonChampaign.setOnClickListener(this);
-        //buttonChicago.setOnClickListener(this);
-        //buttonLA.setOnClickListener(this);
+        Button buttonChampaign = findViewById(R.id.buttonChampaign);
+        Button buttonChicago = findViewById(R.id.buttonChicago);
+        Button buttonLA = findViewById(R.id.buttonLA);
         Button buttonNew = findViewById(R.id.buttonAddLocation);
 
+        buttonChampaign.setOnClickListener(this);
+        buttonChicago.setOnClickListener(this);
+        buttonLA.setOnClickListener(this);
         buttonNew.setOnClickListener(this);
-
 
     }
 
@@ -48,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         Intent intent;
         switch (view.getId()) {
-            /*case R.id.buttonChampaign:
+            case R.id.buttonChampaign:
                 intent = new Intent(this, DetailsActivity.class);
                 intent.putExtra("city", "Champaign");
                 startActivity(intent);
@@ -62,11 +56,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(this, DetailsActivity.class);
                 intent.putExtra("city", "Los Angeles");
                 startActivity(intent);
-                break;*/
+                break;
             case R.id.buttonAddLocation:
                 // Implement this action to add a new location to the list of locations
-                intent = new Intent(this, MapsActivity.class);
-                startActivity(intent);
                 break;
         }
     }
