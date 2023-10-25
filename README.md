@@ -106,20 +106,24 @@ Meeting notes: MileStone2 completed, Discussed a plan on how to implement the fi
 
 <b>Week 5</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: tvm3, aabhav2, mnn3, dvalen25, shassa25, yujiaq5, ahwang22, wenzl2
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Discussed the tasks completed from the previous week:
+Sign in/Sign up page needs to have few fixes,
+Removing a city needs to be implemented,
+Documentation to be done wherever needed,
+Integrate all these working branches and finish the Custom UI Feature.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|   tvm3             |          adding cities done, need to remvoe cities                       |      Add missing features and make sure everything is in line and merge branches to main                 |
+|     aabhav2           |        once login page is done, can integrate Custom UI                         |           Custom UI feature and integrating with existing features            |
+|    mnn3            |        once login page is done, can integrate Custom UI                         |      Custom UI feature and integrating with existing features                 |
+|  dvalen25              |  Sign in/Sign Up page almost done minor fixes needed                               |   Fix the Sign in/Sign Up page and integrate with other screens                    |
+|   shassa25             |    once login page is done, can integrate Custom UI                             |     Custom UI feature and integrating with existing features                  |
+|  yujiaq5              |         adding cities done, need to remvoe cities                        |         Fix the cities feature and integrate with existing features              |
+|   ahwang22             |     adding cities done, need to remvoe cities                            |    Fix the cities feature and integrate with existing features                   |
+|     wenzl2           |       Sign in/Sign Up page almost done minor fixes needed                          |    Fix the Sign in/Sign Up page and integrate with other screens                   |
 </br>
 
 
