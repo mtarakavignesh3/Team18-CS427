@@ -43,6 +43,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
     }
+
+    private void GotoMainActivity(String username) {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        intent.putExtra("userId", username);
+        startActivity(intent);
+    }
     @Override
     public void onClick(View view) {
         String username = usernameEditText.getText().toString();
@@ -57,16 +63,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (account.name.equals(username)) {
                     String accountPassword = accountManager.getPassword(account);
                     if (password.equals(accountPassword)) {
-
                         Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                        // TODO: NAVIGATE TO MAIN PAGE:
-
-                        return;
+                        GotoMainActivity(account.name);
+                        finish();
+                        break;
                     }
+                    // Authentication failed
+                    Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
                 }
             }
-            // Authentication failed
-            Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
         }
     }
 }

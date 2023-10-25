@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "978304940511",
+    "project_id": "cs427-141f2",
+    "storage_bucket": "cs427-141f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978304940511:android:36e27f41e2f662c0876c6a",
+        "android_client_info": {
+          "package_name": "edu.uiuc.cs427app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjzKQUWKOOyn8FVm-gmDJl3Gp0IdOtGwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

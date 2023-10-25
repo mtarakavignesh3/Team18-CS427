@@ -41,7 +41,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         } else {
             Account newAccount = new Account(username, "edu.uiuc.cs427app");
             boolean accountAdded = accountManager.addAccountExplicitly(newAccount, password, null);
-
             if (accountAdded) {
                 Toast.makeText(this, "Account Registered", Toast.LENGTH_SHORT).show();
                 finish(); // Close the registration activity
