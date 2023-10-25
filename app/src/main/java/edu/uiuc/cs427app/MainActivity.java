@@ -2,7 +2,9 @@ package edu.uiuc.cs427app;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,22 +18,36 @@ import edu.uiuc.cs427app.databinding.ActivityMainBinding;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
-    private AccountManager accountManager;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        accountManager = AccountManager.get(this);
-        Account[] accounts = accountManager.getAccountsByType("edu.uiuc.cs427app");
-        Intent intent = getIntent();
-        String userId = intent.getStringExtra("userId");
-        getSupportActionBar().setTitle(userId);
+        // Retrieve User data from SharedPreferences
+        sharedPreferences = getSharedPreferences(getString(R.string.userDataFileName), Context.MODE_PRIVATE);
+        String userId = sharedPreferences.getString(getString(R.string.currentUserVariable), null);
+        String getJson = sharedPreferences.getString(userId, null);
+
+        Gson gson = new Gson();
+        if (getJson == null) {
+            goToLoginActivity();
+        }
+
+        User currUser = gson.fromJson(getJson, User.class);
+        List<String> locations = currUser.getSavedPlaces();
+
+
+        getSupportActionBar().setTitle(getString(R.string.app_name) + "-" + userId);
 
 
         // Initializing the UI components
@@ -72,6 +88,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // Implement this action to add a new location to the list of locations
                 break;
         }
+    }
+    public void goToLoginActivity() {
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    public void logOut() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(getString(R.string.currentUserVariable), "");
+        editor.apply();
+
+        goToLoginActivity();
     }
 }
 

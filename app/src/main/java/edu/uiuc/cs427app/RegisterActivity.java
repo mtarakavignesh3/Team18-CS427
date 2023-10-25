@@ -1,5 +1,7 @@
 package edu.uiuc.cs427app;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +12,8 @@ import android.accounts.Account;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.gson.Gson;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -43,10 +47,24 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             boolean accountAdded = accountManager.addAccountExplicitly(newAccount, password, null);
             if (accountAdded) {
                 Toast.makeText(this, "Account Registered", Toast.LENGTH_SHORT).show();
+                addUserToSharedPreferences(username);
                 finish(); // Close the registration activity
             } else {
-                Toast.makeText(this, "Failed to register the account", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Account already exist", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+
+    // Adds an empty user to the username
+    public void addUserToSharedPreferences(String username) {
+        // Save User data to SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.userDataFileName), Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        User user = new User(username);
+        String json = gson.toJson(user);
+        editor.putString(username, json);
+        editor.apply();
     }
 }

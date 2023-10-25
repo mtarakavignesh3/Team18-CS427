@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Team 18</string>
+    <string name="currentUserVariable">signed-in-user</string>
+    <string name="userDataFileName">userData</string>
 </resources>
