@@ -23,7 +23,9 @@ import androidx.appcompat.widget.SearchView;
 import java.io.IOException;
 import java.util.List;
 
-// This activity displays a Google Map and provides functionality to search for cities and add a location.
+/**
+ * This activity displays a Google Map and provides functionality to search for cities and add a location.
+ */
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, View.OnClickListener {
 
     private GoogleMap mMap;// Google Map object
@@ -31,7 +33,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     Marker marker;// Marker for selected city on the map
 
-
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -61,12 +66,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Set up a button to add the selected location
         Button buttonMapConfirm = findViewById(R.id.buttonMapAdd);
+        Button buttonMapReturn = findViewById(R.id.buttonMapCancel);
 
         buttonMapConfirm.setOnClickListener(this);
+        buttonMapReturn.setOnClickListener(this);
 
         mapFragment.getMapAsync(this);
     }
 
+    /**
+     *
+     * @param cityName
+     */
     private void searchCity(String cityName) {
         //create and initialize a geo coder
         Geocoder geocoder = new Geocoder(this);
@@ -95,7 +106,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    // map is ready to be used and set the default address
+    /**
+     * map is ready to be used and set the default address
+     * @param googleMap
+     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -106,6 +120,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.moveCamera(CameraUpdateFactory.newLatLng(champaign));
     }
 
+    /**
+     *
+     * @param view
+     */
     @Override
     public void onClick(View view) {
 
@@ -118,6 +136,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
             finish();// End the activity and return to the calling activity
 
+        }
+
+        // Ends the activity and returns to the calling activity
+        if(view.getId() == R.id.buttonMapCancel) {
+            finish();
         }
     }
 }

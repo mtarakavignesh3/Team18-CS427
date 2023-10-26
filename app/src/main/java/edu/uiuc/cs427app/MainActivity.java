@@ -1,5 +1,6 @@
 package edu.uiuc.cs427app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -12,11 +13,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.AdapterView;
+import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * The activity that displays the city list.
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private ArrayList<String> cityList;
     private CityManager cityManager;
@@ -25,32 +31,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ArrayAdapter<String> adapter;
     private static final int ADD_LOCATION_REQUEST = 1;
 
-    //This method is called when the activity is first created
+    private String username;
+
+    /**
+     * This method is called when the activity is first created
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        username = "yujia";
+
         super.onCreate(savedInstanceState);
+        this.setTitle("Team18-" + username);
         setContentView(R.layout.activity_main);// Set the layout for this activity
+
         cityList = new ArrayList<>();
-        cityManager = new CityManager(this, "yujia");// Initialize the city manager with a user name
+        cityManager = new CityManager(this, username);// Initialize the city manager with a user name
         cityList = cityManager.getCityList();// get the list of cities from the city manager
 
         // Find the ListView by its ID and set up the adapter for it
         ListView listView = findViewById(R.id.city_ListView);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cityList);
-        listView.setAdapter(adapter);
+        listView.setAdapter(new CityCustomAdapter(cityList, this));
 
+        // Sets up the Add A Location button
         Button buttonNew = findViewById(R.id.buttonAddLocation);
-
         buttonNew.setOnClickListener(this);
     }
 
-    //update the city list and notify the adapter of the data change
+    /**
+     * update the city list and notify the adapter of the data change
+     */
     private void updateCityList() {
         cityList.clear();
         cityList.addAll(cityManager.getCityList());
         adapter.notifyDataSetChanged();
     }
 
+    /**
+     *
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         Intent intent;
@@ -63,7 +83,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    // Callback method for receiving results from activities started for result
+    /**
+     * Callback method for receiving results from activities started for result
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -76,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     // Add the city to the user_data, update the city list
                     cityManager.addCity(cityName);
                     updateCityList();
-                    Toast.makeText(this, "successfully add city", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "City added!", Toast.LENGTH_SHORT).show();
                 }
             }
         }
