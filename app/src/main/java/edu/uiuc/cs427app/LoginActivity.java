@@ -75,6 +75,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     // Authentication failed
                     Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
                 }
+                Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
             }
         }
     }
