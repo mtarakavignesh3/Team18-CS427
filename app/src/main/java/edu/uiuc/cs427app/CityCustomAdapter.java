@@ -1,6 +1,7 @@
 package edu.uiuc.cs427app;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,15 +18,18 @@ import java.util.ArrayList;
 public class CityCustomAdapter extends BaseAdapter implements ListAdapter {
     private ArrayList<String> list = new ArrayList<String>();
     private Context context;
+    private static InterfaceRemoveCity interfaceRemove;
 
     /**
      * Public constructor for CityCustomAdapter
      * @param list
      * @param context
      */
-    public CityCustomAdapter(ArrayList<String> list, Context context) {
+    public CityCustomAdapter(ArrayList<String> list, Context context, InterfaceRemoveCity interfaceR) {
         this.list = list;
         this.context = context;
+
+        interfaceRemove = interfaceR;
     }
 
     /**
@@ -82,7 +86,9 @@ public class CityCustomAdapter extends BaseAdapter implements ListAdapter {
         Button detailsButton= (Button)view.findViewById(R.id.button_details);
 
         detailsButton.setOnClickListener(new View.OnClickListener(){
-            // Launches the details activity when the details button is clicked on this particular city
+            /**
+             * Launches the details activity when the details button is clicked on this particular city
+             */
             @Override
             public void onClick(View v) {
                 //TODO: Launch the details activity where the weather and map data can be displayed
@@ -90,12 +96,16 @@ public class CityCustomAdapter extends BaseAdapter implements ListAdapter {
             }
         });
         deleteButton.setOnClickListener(new View.OnClickListener(){
-            // Deletes this city when the delete button is clicked on this particular city
+            /**
+             * Deletes this city when the delete button is clicked on this particular city
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 //cityList.removeCity(cityName.getText());
-
-                notifyDataSetChanged();
+                String city = cityName.getText().toString();
+                interfaceRemove.removeCity(city);
+                //notifyDataSetChanged();
 
             }
         });
@@ -103,3 +113,4 @@ public class CityCustomAdapter extends BaseAdapter implements ListAdapter {
         return view;
     }
 }
+

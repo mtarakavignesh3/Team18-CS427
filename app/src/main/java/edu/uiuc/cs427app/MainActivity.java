@@ -23,12 +23,12 @@ import java.util.List;
 /**
  * The activity that displays the city list.
  */
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, InterfaceRemoveCity {
     private ArrayList<String> cityList;
     private CityManager cityManager;
 
     // Adapter to bridge data between the city list and the ListView UI component
-    private ArrayAdapter<String> adapter;
+    static CityCustomAdapter adapter;
     private static final int ADD_LOCATION_REQUEST = 1;
 
     private String username;
@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // Find the ListView by its ID and set up the adapter for it
         ListView listView = findViewById(R.id.city_ListView);
-        listView.setAdapter(new CityCustomAdapter(cityList, this));
+        adapter = new CityCustomAdapter(cityList, this, this);
+        listView.setAdapter(adapter);
 
         // Sets up the Add A Location button
         Button buttonNew = findViewById(R.id.buttonAddLocation);
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /**
-     * update the city list and notify the adapter of the data change
+     * Update the city list and notify the adapter of the data change
      */
     private void updateCityList() {
         cityList.clear();
@@ -68,7 +69,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /**
-     *
+     * Used to remove a city from CityManager and notify the adapter of the data change
+     * @param city
+     */
+    @Override
+    public void removeCity(String city) {
+        cityManager.removeCity(city);
+        updateCityList();
+    }
+
+    /**
+     * Start the MapsActivity to add a new location
      * @param view
      */
     @Override
@@ -76,7 +87,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent;
         switch (view.getId()) {
             case R.id.buttonAddLocation:
-                // Start the MapsActivity to add a new location
                 intent = new Intent(this, MapsActivity.class);
                 startActivityForResult(intent, ADD_LOCATION_REQUEST);
                 break;
@@ -92,11 +102,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         // Check if the result is from the MapsActivity and if it was successful
         if(requestCode == ADD_LOCATION_REQUEST) {
             if(resultCode == RESULT_OK && data != null) {
                 // Retrieve the city name from the result
                 String cityName = data.getStringExtra("city_name");
+
                 if(cityName != null && !cityName.isEmpty()) {
                     // Add the city to the user_data, update the city list
                     cityManager.addCity(cityName);

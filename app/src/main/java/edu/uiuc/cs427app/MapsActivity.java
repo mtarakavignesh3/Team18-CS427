@@ -1,10 +1,10 @@
 package edu.uiuc.cs427app;
 
-
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -121,7 +121,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     /**
-     *
+     * What the maps activity does when a button is clicked.
+     * Either attempts to add a new city or returns to the previous activity.
      * @param view
      */
     @Override
@@ -130,16 +131,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if(view.getId() == R.id.buttonMapAdd) {
             Intent resultIntent = new Intent();// Intent to send the result back to the calling activity
             if(marker != null) {
+                String test = marker.getTitle();
                 // Add the city name from the marker's title to the intent
                 resultIntent.putExtra("city_name", marker.getTitle());
                 setResult(RESULT_OK, resultIntent);
             }
             finish();// End the activity and return to the calling activity
 
-        }
-
-        // Ends the activity and returns to the calling activity
-        if(view.getId() == R.id.buttonMapCancel) {
+        } else if(view.getId() == R.id.buttonMapCancel) { // Ends the activity and returns to the calling activity
             finish();
         }
     }

@@ -6,7 +6,7 @@
 
     <TextView
         android:id="@+id/cityName"
-        android:layout_width="fill_parent"
+        android:layout_width="400px"
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:textSize="18sp"
@@ -14,13 +14,13 @@
         android:text="city" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
         <View
             android:layout_width="fill_parent"
-            android:layout_height="0dp"
+            android:layout_height="40dp"
             android:layout_weight="1" />
 
         <Button
@@ -28,7 +28,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
             android:text="Delete"/>
 
         <Button
@@ -36,7 +36,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:layout_alignParentRight="true"
             android:text="Details"/>
 
     </LinearLayout>
