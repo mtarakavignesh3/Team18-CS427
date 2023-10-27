@@ -15,12 +15,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 
+/**
+ * Class for the login activity.
+ */
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private AccountManager accountManager;
     private EditText usernameEditText;
     private EditText passwordEditText;
 
+    /**
+     * Launches this activity.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +43,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Button createAccountBtn = findViewById(R.id.create_an_account_button);
 
         createAccountBtn.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Launches registration activity.
+             * @param view
+             */
             @Override
             public void onClick(View view) {
                 registerActivity();
@@ -43,15 +54,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
+    /**
+     * Launches the registration activity.
+     */
     private void registerActivity() {
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Launches the main activity.
+     * @param username
+     */
     private void gotoMainActivity(String username) {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * Login attempts are checked here. Generates Toast messages depending on outcome.
+     * @param view
+     */
     @Override
     public void onClick(View view) {
         String username = usernameEditText.getText().toString();
@@ -71,17 +94,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         login(username);
                         finish();
                         break;
+                    } else { // Authentication failed
+                        Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
                     }
-                    // Authentication failed
-                    Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
             }
+            Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
         }
     }
 
+    /**
+     * Save User data to SharedPreferences
+     * @param username
+     */
     private void login(String username) {
-        // Save User data to SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("userData", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(getString(R.string.currentUserVariable), username);

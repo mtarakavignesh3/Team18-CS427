@@ -17,6 +17,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFirstApp">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBzvJ4-i0qeBZKn3MySAl4SmgPLHfJs_QU" />
+
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -26,6 +31,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".DetailsActivity" android:exported="true"></activity>
+        <activity android:name=".MapsActivity" android:exported="false" />
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".MainActivity"></activity>
 
