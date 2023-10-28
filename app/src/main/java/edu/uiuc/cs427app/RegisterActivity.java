@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import android.accounts.Account;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.gson.Gson;
 
@@ -23,6 +25,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText usernameEditText;
     private EditText passwordEditText;
     private Switch switchView;
+    private SharedPreferences sharedPreferences;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
@@ -41,52 +44,73 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         Button registerButton = findViewById(R.id.register_button);
         registerButton.setOnClickListener(this);
-        switchView.setOnClickListener(this);
+        switchView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Log.i("Theme", "Dark theme selected.");
+                } else {
+                    Log.i("Theme", "Light theme selected.");
+                }
+            }
+        });
     }
 
     @Override
     public void onClick(View view) {
-
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
+        boolean accountAdded = false;
+        boolean isThemeDark = switchView.isChecked();
 
-        if(view.getId() == R.id.register_button){
+        if (view.getId() == R.id.register_button) {
             if (username.isEmpty() || password.isEmpty()) {
                 Toast.makeText(this, "Missing Fields: Please type a username and a password", Toast.LENGTH_SHORT).show();
             } else {
                 Account newAccount = new Account(username, "edu.uiuc.cs427app");
-                boolean accountAdded = accountManager.addAccountExplicitly(newAccount, password, null);
+                accountAdded = accountManager.addAccountExplicitly(newAccount, password, null);
                 if (accountAdded) {
                     Toast.makeText(this, "Account Registered", Toast.LENGTH_SHORT).show();
-                    addUserToSharedPreferences(username);
+                    saveThemeToSharedPreferences(isThemeDark); // updated this call
+                    applyTheme(isThemeDark ? "Dark" : "Light");
+                    addUserToSharedPreferences(username, isThemeDark);
                     finish(); // Close the registration activity
                 } else {
-                    Toast.makeText(this, "Account already exist", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Account already exists", Toast.LENGTH_SHORT).show();
                 }
             }
         }
+    }
 
-        // handles theme
-        if(view.getId() == R.id.id_switch){
-            if (switchView.isChecked()) {
-                Log.i("[DEBUG]", "switch on!");
-            } else {
-                Log.i("[DEBUG]", "switch off!");
-            }
+    private void saveThemeToSharedPreferences(Boolean isThemeDark) {
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.userDataFileName), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        if (isThemeDark) {
+            editor.putString(getString(R.string.themePreferenceKey), "Dark");
+        } else {
+            editor.putString(getString(R.string.themePreferenceKey), "Light");
         }
+        editor.apply();
+    }
 
+    private void addUserToSharedPreferences(String username, boolean isThemeDark) {
+        User newUser = new User(username, isThemeDark ? "Dark" : "Light");
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.userDataFileName), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        Gson gson = new Gson();
+        String jsonUser = gson.toJson(newUser);
+        editor.putString(username, jsonUser);
+        editor.apply();
     }
 
 
-    // Adds an empty user to the username
-    public void addUserToSharedPreferences(String username) {
-        // Save User data to SharedPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.userDataFileName), Context.MODE_PRIVATE);
-        Gson gson = new Gson();
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        User user = new User(username);
-        String json = gson.toJson(user);
-        editor.putString(username, json);
-        editor.apply();
+    private void applyTheme(String theme) {
+        Log.i("[DEBUG]Theme: ", theme);
+        if ("Dark".equals(theme)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else if ("Light".equals(theme)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
     }
 }

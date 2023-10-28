@@ -69,17 +69,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         User currUser = gson.fromJson(getJson, User.class);
+        if (currUser == null) {
+            goToLoginActivity();
+            return;
+        }
         username = userId;
         List<String> locations = currUser.getSavedPlaces();
 
-        //getSupportActionBar().setTitle(getString(R.string.app_name) + "-" + userId);
-
-        // Initializing the UI components
-        // The list of locations should be customized per user (change the implementation so that
-        // buttons are added to layout programmatically
-
         this.setTitle("Team18-" + username);
-        //setContentView(R.layout.activity_main);// Set the layout for this activity
 
         cityList = (ArrayList<String>) locations;
         cityManager = new CityManager(this, username);// Initialize the city manager with a user name
