@@ -6,12 +6,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.gson.Gson;
 
@@ -79,27 +81,29 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
-
+        Boolean accountFound = false;
         if (username.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "Missing Fields: Please type a username and a password", Toast.LENGTH_SHORT).show();
-        } else {
-            // Authenticate the user
-            Account[] accounts = accountManager.getAccountsByType("edu.uiuc.cs427app");
-            for (Account account : accounts) {
-                if (account.name.equals(username)) {
-                    String accountPassword = accountManager.getPassword(account);
-                    if (password.equals(accountPassword)) {
-                        Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                        gotoMainActivity(account.name);
-                        login(username);
-                        finish();
-                        break;
-                    } else { // Authentication failed
-                        Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
-                    }
+            return;
+        }
+        Account[] accounts = accountManager.getAccountsByType("edu.uiuc.cs427app");
+        for (Account account : accounts) {
+            if (account.name.equals(username)) {
+                accountFound = true;
+                String accountPassword = accountManager.getPassword(account);
+                if(password.equals(accountPassword)) {
+                    Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                    login(username);
+                    gotoMainActivity(account.name);
+                    finish();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
                 }
+                break;
             }
-            Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
+        }
+        if (!accountFound) {
+            Toast.makeText(LoginActivity.this, "Account not found. Please register.", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -108,9 +112,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      * @param username
      */
     private void login(String username) {
-        SharedPreferences sharedPreferences = getSharedPreferences("userData", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.userDataFileName), Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String jsonUser = sharedPreferences.getString(username, "");
+        if (!jsonUser.isEmpty()) {
+            User user = gson.fromJson(jsonUser, User.class);
+            applyTheme(user.getTheme());
+        } else {
+            applyTheme("Light");
+        }
+
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(getString(R.string.currentUserVariable), username);
         editor.apply();
     }
+
+    private void applyTheme(String theme) {
+        Log.i("[DEBUG]Theme: ", theme);
+        if ("Dark".equals(theme)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else if ("Light".equals(theme)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+    }
+
 }
