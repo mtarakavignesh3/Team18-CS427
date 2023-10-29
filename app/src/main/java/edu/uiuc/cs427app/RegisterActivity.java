@@ -19,6 +19,9 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.gson.Gson;
 
+/**
+ * The RegisterActivity class allows users to register an account with optional theme selection.
+ */
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private AccountManager accountManager;
@@ -26,6 +29,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText passwordEditText;
     private Switch switchView;
     private SharedPreferences sharedPreferences;
+    /**
+     * This method is called when the RegisterActivity is created.
+     * @param savedInstanceState The saved instance state.
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
@@ -40,10 +47,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         } else {
             Log.i("NumberGenerated", "Theme 2");
         }
+         // Initialize account manager and buttons
         Account[] accounts = accountManager.getAccountsByType("edu.uiuc.cs427app");
 
         Button registerButton = findViewById(R.id.register_button);
         registerButton.setOnClickListener(this);
+         // Set up a listener for the switch to track theme selection
         switchView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -56,6 +65,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         });
     }
 
+    /**
+     * This method is called when a button is clicked, and it handles the registration process.
+     * @param view The view that triggered the click event.
+     */
     @Override
     public void onClick(View view) {
         String username = usernameEditText.getText().toString();
@@ -82,6 +95,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    /**
+     * This method saves the selected theme preference to SharedPreferences.
+     * @param isThemeDark A boolean indicating if the dark theme is selected.
+     */
     private void saveThemeToSharedPreferences(Boolean isThemeDark) {
         SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.userDataFileName), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -93,6 +110,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         editor.apply();
     }
 
+    /**
+     * This method adds user information to SharedPreferences.
+     * @param username The username of the user.
+     * @param isThemeDark A boolean indicating if the dark theme is selected.
+     */
     private void addUserToSharedPreferences(String username, boolean isThemeDark) {
         User newUser = new User(username, isThemeDark ? "Dark" : "Light");
         SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.userDataFileName), Context.MODE_PRIVATE);
@@ -104,7 +126,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         editor.apply();
     }
 
-
+    /**
+     * This method applies the selected theme to the app.
+     * @param theme The selected theme ("Dark" or "Light").
+     */
     private void applyTheme(String theme) {
         Log.i("[DEBUG]Theme: ", theme);
         if ("Dark".equals(theme)) {

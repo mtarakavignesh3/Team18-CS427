@@ -40,4 +40,3 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         //Implement this (create an Intent that goes to a new Activity, which shows the map)
     }
 }
-

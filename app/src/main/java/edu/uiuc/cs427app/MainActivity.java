@@ -33,8 +33,9 @@ import java.util.List;
 
 import edu.uiuc.cs427app.databinding.ActivityMainBinding;
 
+
 /**
- * The activity that displays the city list.
+ * The MainActivity class displays the city list and provides options to add or remove cities.
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, InterfaceRemoveCity {
     private ArrayList<String> cityList;
@@ -50,8 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SharedPreferences sharedPreferences;
 
     /**
-     * This method is called when the activity is first created
-     * @param savedInstanceState
+     * This method is called when the MainActivity is created.
+     * @param savedInstanceState The saved instance state.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,8 +97,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonLogout.setOnClickListener(this);
     }
 
-    /**
-     * Update the city list and notify the adapter of the data change
+     /**
+     * This method updates the city list and notifies the adapter of the data change.
      */
     private void updateCityList() {
         cityList.clear();
@@ -105,9 +106,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         adapter.notifyDataSetChanged();
     }
 
-    /**
-     * Used to remove a city from CityManager and notify the adapter of the data change
-     * @param city
+     /**
+     * This method is used to remove a city from CityManager and notify the adapter of the data change.
+     * @param city The city to remove.
      */
     @Override
     public void removeCity(String city) {
@@ -116,8 +117,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /**
-     * Start the MapsActivity to add a new location
-     * @param view
+     * This method is called when a button is clicked, and it handles the "Add A Location" and "Logout" buttons.
+     * @param view The view that triggered the click event.
      */
     @Override
     public void onClick(View view) {
@@ -133,12 +134,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * This method navigates to the LoginActivity when the user needs to log in or register.
+     */
     public void goToLoginActivity() {
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();
     }
 
+    /**
+     * This method logs the user out and navigates to the LoginActivity.
+     */
     public void logOut() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(getString(R.string.currentUserVariable), "");
@@ -148,11 +155,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+
     /**
-     * Callback method for receiving results from activities started for result
-     * @param requestCode
-     * @param resultCode
-     * @param data
+     * Callback method for receiving results from activities started for result.
+     * @param requestCode The request code for the activity.
+     * @param resultCode The result code indicating success or failure.
+     * @param data The data returned from the activity.
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -174,4 +182,3 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 }
-
