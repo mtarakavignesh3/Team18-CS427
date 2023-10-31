@@ -129,20 +129,20 @@ Integrate all these working branches and finish the Custom UI Feature.
 
 <b>Week 6</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: tvm3, aabhav2, mnn3, dvalen25, shassa25, yujiaq5, ahwang22, wenzl2
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Milestone3 Tasks completed & discussed the plan of action for remaining 2 features: Show Map & Show Weather
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|   tvm3             |      MileStone3 Tasks Completed                           |       Assisting in Weather feature implementation & Making sure everything is on track                |
+|     aabhav2           |      MileStone3 Tasks Completed                           |     Map feature                  |
+|   mnn3             |         MileStone3 Tasks Completed                        |       Map feature                |
+|   dvalen25             |    MileStone3 Tasks Completed                             |        Weather feature               |
+|    shassa25            |     MileStone3 Tasks Completed                            |         Weather feature              |
+|    yujiaq5            |     MileStone3 Tasks Completed                            |      Map feature                 |
+|    ahwang22            |     MileStone3 Tasks Completed                            |           Weather & Map Buttons on Main activity            |
+|         wenzl2       |      MileStone3 Tasks Completed                           |           Weather feature            |
 </br>
 
 
