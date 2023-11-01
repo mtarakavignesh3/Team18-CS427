@@ -1,7 +1,6 @@
 package edu.uiuc.cs427app;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,18 +17,18 @@ import java.util.ArrayList;
 public class CityCustomAdapter extends BaseAdapter implements ListAdapter {
     private ArrayList<String> list = new ArrayList<String>();
     private Context context;
-    private static InterfaceRemoveCity interfaceRemove;
+    private static CityInterface cityInterface;
 
     /**
      * Public constructor for CityCustomAdapter
      * @param list
      * @param context
      */
-    public CityCustomAdapter(ArrayList<String> list, Context context, InterfaceRemoveCity interfaceR) {
+    public CityCustomAdapter(ArrayList<String> list, Context context, CityInterface interfaceR) {
         this.list = list;
         this.context = context;
 
-        interfaceRemove = interfaceR;
+        cityInterface = interfaceR;
     }
 
     /**
@@ -83,18 +82,9 @@ public class CityCustomAdapter extends BaseAdapter implements ListAdapter {
 
         //Handle buttons and adds onClickListeners for each button
         Button deleteButton= (Button)view.findViewById(R.id.button_delete);
-        Button detailsButton= (Button)view.findViewById(R.id.button_details);
+        Button weatherButton= (Button)view.findViewById(R.id.button_weather);
+        Button mapButton= (Button)view.findViewById(R.id.button_map);
 
-        detailsButton.setOnClickListener(new View.OnClickListener(){
-            /**
-             * Launches the details activity when the details button is clicked on this particular city
-             */
-            @Override
-            public void onClick(View v) {
-                //TODO: Launch the details activity where the weather and map data can be displayed
-
-            }
-        });
         deleteButton.setOnClickListener(new View.OnClickListener(){
             /**
              * Deletes this city when the delete button is clicked on this particular city
@@ -102,11 +92,33 @@ public class CityCustomAdapter extends BaseAdapter implements ListAdapter {
              */
             @Override
             public void onClick(View v) {
-                //cityList.removeCity(cityName.getText());
                 String city = cityName.getText().toString();
-                interfaceRemove.removeCity(city);
+                cityInterface.removeCity(city);
                 //notifyDataSetChanged();
+            }
+        });
 
+        weatherButton.setOnClickListener(new View.OnClickListener(){
+            /**
+             * Launches the weather activity when the weather button is clicked on this particular city
+             */
+            @Override
+            public void onClick(View v) {
+                //TODO: Launch the details activity where the weather and map data can be displayed
+                String city = cityName.getText().toString();
+                cityInterface.getCityWeather(city);
+            }
+        });
+
+        mapButton.setOnClickListener(new View.OnClickListener(){
+            /**
+             * Launches the map activity when the map button is clicked on this particular city
+             */
+            @Override
+            public void onClick(View v) {
+                //TODO: Launch the details activity where the weather and map data can be displayed
+                String city = cityName.getText().toString();
+                cityInterface.getCityMap(city);
             }
         });
 

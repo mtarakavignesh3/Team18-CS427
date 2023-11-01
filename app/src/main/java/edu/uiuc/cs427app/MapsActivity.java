@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -33,18 +32,24 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     Marker marker;// Marker for selected city on the map
 
+    String defaultCity;
+
+    Button buttonMapConfirm;
+    Button buttonMapReturn;
+
     /**
-     *
+     * Start up actions when the map activity is first opened.
      * @param savedInstanceState
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
         // Initialize the search view
         citySearch = (SearchView) findViewById(R.id.idSearchView);
+
+
 
         // Set a listener to handle city search queries
         citySearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -60,22 +65,28 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 return false;
             }
         });
-        // Initialize the map fragment to display the map
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+
+        //  Stores the city if it is passed in from the main activity
+        defaultCity = getIntent().getStringExtra("city");
+
 
         // Set up a button to add the selected location
-        Button buttonMapConfirm = findViewById(R.id.buttonMapAdd);
-        Button buttonMapReturn = findViewById(R.id.buttonMapCancel);
+        buttonMapConfirm = findViewById(R.id.buttonMapAdd);
+        buttonMapReturn = findViewById(R.id.buttonMapCancel);
 
         buttonMapConfirm.setOnClickListener(this);
         buttonMapReturn.setOnClickListener(this);
 
+        // Initialize the map fragment to display the map
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
     }
 
     /**
-     *
+     * Uses the text from the search bar to search for a city that matches.
      * @param cityName
      */
     private void searchCity(String cityName) {
@@ -113,11 +124,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng champaign = new LatLng(40.1164, -88.2434);
-        mMap.addMarker(new MarkerOptions()
-                .position(champaign)
-                .title("Marker in Champaign"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(champaign));
+
+        if (defaultCity == null) {
+            LatLng champaign = new LatLng(40.1164, -88.2434);
+            mMap.addMarker(new MarkerOptions()
+                    .position(champaign)
+                    .title("Marker in Champaign"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(champaign));
+        } else {
+            if (defaultCity != null) {
+                citySearch.setQuery(defaultCity,true);
+            }
+            buttonMapConfirm.setVisibility(View.GONE);
+            buttonMapReturn.setText("Return");
+        }
     }
 
     /**
@@ -127,19 +147,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      */
     @Override
     public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.buttonMapAdd:
+                Intent resultIntent = new Intent();// Intent to send the result back to the calling activity
+                if (marker != null) {
+                    // Add the city name from the marker's title to the intent
+                    resultIntent.putExtra("city_name", marker.getTitle());
+                    setResult(RESULT_OK, resultIntent);
+                }
+                finish();// End the activity and return to the calling activity
+                break;
 
-        if(view.getId() == R.id.buttonMapAdd) {
-            Intent resultIntent = new Intent();// Intent to send the result back to the calling activity
-            if(marker != null) {
-                String test = marker.getTitle();
-                // Add the city name from the marker's title to the intent
-                resultIntent.putExtra("city_name", marker.getTitle());
-                setResult(RESULT_OK, resultIntent);
-            }
-            finish();// End the activity and return to the calling activity
-
-        } else if(view.getId() == R.id.buttonMapCancel) { // Ends the activity and returns to the calling activity
-            finish();
+            case R.id.buttonMapCancel:
+                finish();
+                break;
         }
     }
 }

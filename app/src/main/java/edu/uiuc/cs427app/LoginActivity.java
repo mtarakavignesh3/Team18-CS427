@@ -21,7 +21,6 @@ import com.google.gson.Gson;
  * The LoginActivity class represents the login screen of the application.
  */
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-
     private AccountManager accountManager;
     private EditText usernameEditText;
     private EditText passwordEditText;
@@ -38,22 +37,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         accountManager = AccountManager.get(this);
         usernameEditText = findViewById(R.id.login_username);
         passwordEditText = findViewById(R.id.login_password);
-        // Initialize the login button and set a click listener.
+
+        // Initialize the login and create account buttons.
         Button loginBtn = findViewById(R.id.login_button);
-        loginBtn.setOnClickListener(this);
-        // Initialize the "Create an Account" button and set a click listener.
         Button createAccountBtn = findViewById(R.id.create_an_account_button);
 
-        createAccountBtn.setOnClickListener(new View.OnClickListener() {
-             /**
-             * Launches the registration activity when the "Create an Account" button is clicked.
-             * @param view The view that was clicked.
-             */
-            @Override
-            public void onClick(View view) {
-                registerActivity();
-            }
-        });
+        // Set click listeners.
+        loginBtn.setOnClickListener(this);
+        createAccountBtn.setOnClickListener(this);
     }
 
     /**
@@ -79,32 +70,51 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      */
     @Override
     public void onClick(View view) {
-        String username = usernameEditText.getText().toString();
-        String password = passwordEditText.getText().toString();
-        Boolean accountFound = false;
-        if (username.isEmpty() || password.isEmpty()) {
-            // Display a Toast message if the user doesn't provide a username or password.            
-            Toast.makeText(this, "Missing Fields: Please type a username and a password", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        Account[] accounts = accountManager.getAccountsByType("edu.uiuc.cs427app");
-        for (Account account : accounts) {
-            if (account.name.equals(username)) {
-                accountFound = true;
-                String accountPassword = accountManager.getPassword(account);
-                if(password.equals(accountPassword)) {
-                    // Display a Toast message for a successful login.
-                    Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-                    // Perform user login and launch the main activity.
-                    login(username);
-                    gotoMainActivity(account.name);
-                    finish();
-                } else {
-                    // Display a Toast message for a failed login attempt.
-                    Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
+
+        switch (view.getId()) {
+            case R.id.create_an_account_button:
+                registerActivity();
+                break;
+
+            case R.id.login_button:
+                String username = usernameEditText.getText().toString();
+                String password = passwordEditText.getText().toString();
+                Boolean accountFound = false;
+
+                if (username.isEmpty() || password.isEmpty()) {
+                    // Display a Toast message if the user doesn't provide a username or password.
+                    Toast.makeText(this, "Missing Fields: Please type a username and a password", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                //Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
-            }
+
+                Account[] accounts = accountManager.getAccountsByType("edu.uiuc.cs427app");
+
+                for (Account account : accounts) {
+                    String accountName = account.name;
+
+                    if (account.name.equals(username)) {
+                        accountFound = true;
+                        String accountPassword = accountManager.getPassword(account);
+
+                        if(password.equals(accountPassword)) {
+                            // Display a Toast message for a successful login.
+                            Toast.makeText(LoginActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+
+                            // Perform user login and launch the main activity.
+                            login(username);
+
+                            gotoMainActivity(username);
+                            break;
+                            //finish();
+                        } else {
+                            // Display a Toast message for a failed login attempt.
+                            Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
+                        }
+                        //Toast.makeText(LoginActivity.this, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                break;
         }
     }
 
@@ -116,6 +126,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.userDataFileName), Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String jsonUser = sharedPreferences.getString(username, "");
+
         if (!jsonUser.isEmpty()) {
             User user = gson.fromJson(jsonUser, User.class);
             // Apply the user's selected theme.
@@ -124,7 +135,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // Apply the default "Light" theme.
             applyTheme("Light");
         }
-     // Store the current user's username in SharedPreferences.
+
+        // Store the current user's username in SharedPreferences.
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(getString(R.string.currentUserVariable), username);
         editor.apply();
@@ -136,11 +148,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      */
     private void applyTheme(String theme) {
         Log.i("[DEBUG]Theme: ", theme);
+
         if ("Dark".equals(theme)) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else if ("Light".equals(theme)) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
     }
-
 }

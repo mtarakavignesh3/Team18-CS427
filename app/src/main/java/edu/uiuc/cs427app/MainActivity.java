@@ -1,8 +1,5 @@
 package edu.uiuc.cs427app;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,22 +11,15 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import android.view.View;
 
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import android.widget.ListView;
-import android.widget.Toast;
-import android.widget.AdapterView;
-import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import edu.uiuc.cs427app.databinding.ActivityMainBinding;
 
@@ -37,7 +27,7 @@ import edu.uiuc.cs427app.databinding.ActivityMainBinding;
 /**
  * The MainActivity class displays the city list and provides options to add or remove cities.
  */
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, InterfaceRemoveCity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, CityInterface {
     private ArrayList<String> cityList;
     private CityManager cityManager;
 
@@ -140,7 +130,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void goToLoginActivity() {
         Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
-        finish();
+    }
+
+    /**
+     * This method opens the Map activity.
+     * @param city The city to view the map of.
+     */
+    @Override
+    public void getCityMap(String city) {
+        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+        intent.putExtra("city", city);
+        startActivity(intent);
+    }
+
+    /**
+     * This method opens the Weather activity.
+     * @param city The city to view the weather of.
+     */
+    @Override
+    public void getCityWeather(String city) {
+        Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
+        intent.putExtra("city", city);
+        startActivity(intent);
     }
 
     /**
@@ -153,8 +164,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         goToLoginActivity();
     }
-
-
 
     /**
      * Callback method for receiving results from activities started for result.
