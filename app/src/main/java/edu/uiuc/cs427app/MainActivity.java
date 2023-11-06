@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     @Override
     public void getCityMap(String city) {
-        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+        Intent intent = new Intent(MainActivity.this, MapDetailActivity.class);
         intent.putExtra("city", city);
         startActivity(intent);
     }
