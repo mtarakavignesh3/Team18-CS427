@@ -83,12 +83,11 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
                     String weatherObserveTime = weatherArray.getString("ob_time");
 
                     // TODO: Format weather API response better
-                    weatherText.setText(Double.toString(temp) + "\n"
-                            + Double.toString(humidity) + "\n"
-                            + windDirection + "\n"
-                            + windSpeed + "\n"
+                    weatherText.setText("Temperature: " + Double.toString(temp) + "°F\n"
+                            + "Humidity: " + Double.toString(humidity) + "%\n"
+                            + "Wind: "+ windDirection + " at " + windSpeed + " mph\n"
                             + weather + "\n"
-                            + weatherObserveTime);
+                            + "Weather last updated at "+ weatherObserveTime);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
