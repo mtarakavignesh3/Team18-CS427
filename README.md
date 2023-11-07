@@ -148,20 +148,20 @@ Meeting notes: Milestone3 Tasks completed & discussed the plan of action for rem
 
 <b>Week 7</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: tvm3, aabhav2, mnn3, dvalen25, shassa25, yujiaq5, ahwang22, wenzl2
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Map feature and Weather feature done, final customisations will be done. Documentation and video to be recorded.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|      tvm3          |        Updated weekly reports and resolved issues in new features                         |             Document, Verify & Submit video recording          |
+|     aabhav2            |       Feature implementation done                          |                  Add/Customise existing features     |
+|     mnn3            |   Feature implementation done                              |    Add/Customise existing features                   |
+|     dvalen25           |   Feature implementation done                              |     Add/Customise existing features                  |
+|       shassa25           |     Feature implementation done                            |       Add/Customise existing features                |
+|       yujiaq5            |     Feature implementation done                            |          Add/Customise existing features             |
+|      ahwang22            |   Feature implementation done                              |           Add/Customise existing features            |
+|      wenzl2           |       Feature implementation done                          |           Add/Customise existing features            |
 </br>
 
 
