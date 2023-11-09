@@ -20,6 +20,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="94dp"
         android:text="City Name"
+        android:textSize="50sp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold"
         android:padding="8dp" />
@@ -33,7 +34,15 @@
         android:layout_marginRight="94dp"
         android:text="Latitude and Longitude: 0.0"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:padding="8dp" />
+        android:padding="8dp"
+        android:textColor="#FFFFFF"
+        android:background="#FF3700B3"
+        android:elevation="4dp"
+        android:radius="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp" />
 
     <LinearLayout
         android:id="@+id/footer"

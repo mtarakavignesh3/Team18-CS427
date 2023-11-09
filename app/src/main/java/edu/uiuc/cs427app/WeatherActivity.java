@@ -21,6 +21,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * Activity to display weather information for a selected city.
+ */
 public class WeatherActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
@@ -33,8 +36,8 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
 
         // Process the Intent payload that has opened this Activity and show the information accordingly
         String cityName = getIntent().getStringExtra("city");
-        String welcome = "Welcome to "+cityName+" !";
-        String cityWeatherInfo = "Detailed information about the weather of "+cityName;
+        String welcome = "Welcome to "+cityName.toUpperCase()+" !";
+        String cityWeatherInfo = "Detailed information about the weather of "+cityName.toUpperCase()+"\n";
 
         // Initializing the GUI elements
         TextView welcomeMessage = findViewById(R.id.welcomeText);
@@ -42,7 +45,6 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
 
         welcomeMessage.setText(welcome);
         cityInfoMessage.setText(cityWeatherInfo);
-        // Get the weather information from a Service that connects to a weather server and show the results
 
         Button buttonWeatherCancel = findViewById(R.id.weatherButtonCancel);
         buttonWeatherCancel.setOnClickListener(this);
@@ -82,7 +84,6 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
                     // Observed time in UTC
                     String weatherObserveTime = weatherArray.getString("ob_time");
 
-                    // TODO: Format weather API response better
                     weatherText.setText("Temperature: " + Double.toString(temp) + "°F\n"
                             + "Humidity: " + Double.toString(humidity) + "%\n"
                             + "Wind: "+ windDirection + " at " + windSpeed + " mph\n"
@@ -103,6 +104,11 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    /**
+     * Handles the click event for the cancel button.
+     *
+     * @param view The view that was clicked.
+     */
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.weatherButtonCancel) { // Ends the activity and returns to the calling activity

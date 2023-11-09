@@ -104,7 +104,6 @@ public class CityCustomAdapter extends BaseAdapter implements ListAdapter {
              */
             @Override
             public void onClick(View v) {
-                //TODO: Launch the details activity where the weather and map data can be displayed
                 String city = cityName.getText().toString();
                 cityInterface.getCityWeather(city);
             }
@@ -116,7 +115,6 @@ public class CityCustomAdapter extends BaseAdapter implements ListAdapter {
              */
             @Override
             public void onClick(View v) {
-                //TODO: Launch the details activity where the weather and map data can be displayed
                 String city = cityName.getText().toString();
                 cityInterface.getCityMap(city);
             }
