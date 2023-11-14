@@ -167,20 +167,20 @@ Meeting notes: Map feature and Weather feature done, final customisations will b
 
 <b>Week 8</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: tvm3, aabhav2, mnn3, dvalen25, shassa25, yujiaq5, ahwang22, wenzl2
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Discussed the plan of action for the next milestone, start reading the instructions from MileStone Document, refer videos and resources to understand about Espresso. Start working on the tasks assigned.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|     tvm3           |         MileStone 4 Completed                        |     Add tests for Signup/Login/Logoff    and any other missing tests              |
+|     aabhav2           |         MileStone 4 Completed                         |     Add tests for Weather                   |
+|     mnn3             |       MileStone 4 Completed                           |   Add tests for Map/Location                    |
+|     dvalen25            |     MileStone 4 Completed                             |   Add tests for Signup/Login/Logoff                    |
+|     shassa25           |     MileStone 4 Completed                             |      Add tests for Weather                 |
+|      yujiaq5            |      MileStone 4 Completed                            |   Add tests for Cities                    |
+|    ahwang22             |     MileStone 4 Completed                             |    Add tests for Cities                   |
+|     wenzl2             |      MileStone 4 Completed                            |     Add tests for Signup/Login/Logoff                  |
 </br>
 
 
