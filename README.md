@@ -186,39 +186,39 @@ Meeting notes: Discussed the plan of action for the next milestone, start readin
 
 <b>Week 9</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: tvm3, aabhav2, mnn3, dvalen25, shassa25, yujiaq5, ahwang22, wenzl2
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Preparation for Espresso tests by looking at the documentation and slowly start working on the tests.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|     tvm3           |    Pre-readings done for Espresso tests                             |     Start working/assiting in all tests            |
+|     aabhav2           |   Pre-readings done for Espresso tests                               |     Start working on the assigned tests                   |
+|     mnn3             |       Pre-readings done for Espresso tests                           |   Start working on the assigned tests                      |
+|     dvalen25            |   Pre-readings done for Espresso tests                               |   Start working on the assigned tests                     |
+|     shassa25           |   Pre-readings done for Espresso tests                               |      Start working on the assigned tests                   |
+|      yujiaq5            |   Pre-readings done for Espresso tests                               |   Start working on the assigned tests                      |
+|    ahwang22             |     Pre-readings done for Espresso tests              |   Start working on the assigned tests                     |
+|     wenzl2             |      Pre-readings done for Espresso tests                            |    Start working on the assigned tests                   |
 </br>
 
 
 <b>Week 10</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: tvm3, aabhav2, mnn3, dvalen25, shassa25, yujiaq5, ahwang22, wenzl2
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Tests for Signup, Weather and Add City are done, verified their working. Now the remaining tests are distributed.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|     tvm3           |       Verifies the completed tests                          |     Make sure all tests are working as expected, assist in Login/Logoff tests              |
+|     aabhav2           |       Work in progress                           |     Add tests for Location                   |
+|     mnn3             |     Work in progress                             |   Add tests for Location                    |
+|     dvalen25            |      Work in progress                            |   Add tests for Login/Logoff                    |
+|     shassa25           |     Work in progress                             |      Verify tests for Weather                 |
+|      yujiaq5            |     Work in progress                             |   Add tests for Remove City                    |
+|    ahwang22             |     Add city test done                             |    Add tests for remove city                   |
+|     wenzl2             |      Signup Completed                            |     Assist in other tests                  |
 </br>
 
 
