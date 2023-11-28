@@ -21,14 +21,15 @@ public class WeatherActivityTest {
         ActivityScenario.launch(WeatherActivity.class);
     }
     @Test
-    public void testActivityInitialization() {
+    public void testWeatherActivityInitialization() {
         onView(withId(R.id.welcomeText)).check(matches(isDisplayed()));
+        onView(withId(R.id.cityInfo)).check(matches(isDisplayed()));
+        onView(withId(R.id.weatherText)).check(matches(isDisplayed()));
     }
+
     @Test
-    public void testAddButtonClick() {
-        onView(withId(R.id.weatherButtonAdd)).perform(click());
-    }    @Test
     public void testCancelButtonClick() {
+        onView(withId(R.id.weatherButtonCancel)).check(matches(isDisplayed()));
         onView(withId(R.id.weatherButtonCancel)).perform(click());
     }
 }

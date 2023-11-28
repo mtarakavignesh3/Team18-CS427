@@ -14,10 +14,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -36,15 +34,19 @@ public class WeatherActivity extends AppCompatActivity implements View.OnClickLi
 
         // Process the Intent payload that has opened this Activity and show the information accordingly
         String cityName = getIntent().getStringExtra("city");
-        String welcome = "Welcome to "+cityName.toUpperCase()+" !";
-        String cityWeatherInfo = "Detailed information about the weather of "+cityName.toUpperCase()+"\n";
+        if (cityName != null){
+            String welcome = "Welcome to "+cityName.toUpperCase()+" !";
+            String cityWeatherInfo = "Detailed information about the weather of "+cityName.toUpperCase()+"\n";
 
-        // Initializing the GUI elements
-        TextView welcomeMessage = findViewById(R.id.welcomeText);
-        TextView cityInfoMessage = findViewById(R.id.cityInfo);
+            // Initializing the GUI elements
+            TextView welcomeMessage = findViewById(R.id.welcomeText);
+            TextView cityInfoMessage = findViewById(R.id.cityInfo);
 
-        welcomeMessage.setText(welcome);
-        cityInfoMessage.setText(cityWeatherInfo);
+            welcomeMessage.setText(welcome);
+            cityInfoMessage.setText(cityWeatherInfo);
+        } else {
+            cityName = "Chicago";
+        }
 
         Button buttonWeatherCancel = findViewById(R.id.weatherButtonCancel);
         buttonWeatherCancel.setOnClickListener(this);
