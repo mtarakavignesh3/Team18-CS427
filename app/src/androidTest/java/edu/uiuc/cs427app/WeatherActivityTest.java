@@ -38,6 +38,12 @@ public class WeatherActivityTest {
     public void testCancelButtonClick() {
         onView(withId(R.id.weatherButtonCancel)).check(matches(isDisplayed()));
         onView(withId(R.id.weatherButtonCancel)).perform(click());
+        // Adding a sleep of 2 seconds
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -47,6 +53,12 @@ public class WeatherActivityTest {
         intent.putExtra("city", firstCity);
         ActivityScenario.launch(intent);
         onView(withId(R.id.welcomeText)).check(matches(withText(containsString(firstCity.toUpperCase()))));
+        // Adding a sleep of 2 seconds
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     @Test
     public void testWeatherForSecondCity() {

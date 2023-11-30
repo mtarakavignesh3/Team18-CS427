@@ -48,7 +48,9 @@ public class TestAddCity {
 
         onView(withId(androidx.appcompat.R.id.search_src_text))
                 .perform(pressImeActionButton());
-
+        
+        Thread.sleep(2000);
+        
         onView(withId(R.id.buttonMapAdd)).perform(click());
 
         onView(allOf(withId(R.id.cityName), withText("Santa Monica")))
