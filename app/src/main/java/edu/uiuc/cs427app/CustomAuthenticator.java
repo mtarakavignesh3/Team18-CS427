@@ -7,6 +7,9 @@ import android.accounts.NetworkErrorException;
 import android.content.Context;
 import android.os.Bundle;
 
+/**
+ * CustomAuthenticator class extends AbstractAccountAuthenticator to handle account authentication.
+ */
 public class CustomAuthenticator extends AbstractAccountAuthenticator{
     public CustomAuthenticator(Context context) {
         super(context);

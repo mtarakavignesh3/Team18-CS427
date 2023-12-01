@@ -6,6 +6,9 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
+/**
+ * Service responsible for handling authentication requests.
+ */
 public class AuthenticatorService extends Service {
     // Instance field that stores the authenticator object
     private CustomAuthenticator mAuthenticator;

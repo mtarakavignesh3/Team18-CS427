@@ -148,77 +148,77 @@ Meeting notes: Milestone3 Tasks completed & discussed the plan of action for rem
 
 <b>Week 7</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: tvm3, aabhav2, mnn3, dvalen25, shassa25, yujiaq5, ahwang22, wenzl2
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Map feature and Weather feature done, final customisations will be done. Documentation and video to be recorded.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|      tvm3          |        Updated weekly reports and resolved issues in new features                         |             Document, Verify & Submit video recording          |
+|     aabhav2            |       Feature implementation done                          |                  Add/Customise existing features     |
+|     mnn3            |   Feature implementation done                              |    Add/Customise existing features                   |
+|     dvalen25           |   Feature implementation done                              |     Add/Customise existing features                  |
+|       shassa25           |     Feature implementation done                            |       Add/Customise existing features                |
+|       yujiaq5            |     Feature implementation done                            |          Add/Customise existing features             |
+|      ahwang22            |   Feature implementation done                              |           Add/Customise existing features            |
+|      wenzl2           |       Feature implementation done                          |           Add/Customise existing features            |
 </br>
 
 
 <b>Week 8</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: tvm3, aabhav2, mnn3, dvalen25, shassa25, yujiaq5, ahwang22, wenzl2
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Discussed the plan of action for the next milestone, start reading the instructions from MileStone Document, refer videos and resources to understand about Espresso. Start working on the tasks assigned.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|     tvm3           |         MileStone 4 Completed                        |     Add tests for Signup/Login/Logoff    and any other missing tests              |
+|     aabhav2           |         MileStone 4 Completed                         |     Add tests for Weather                   |
+|     mnn3             |       MileStone 4 Completed                           |   Add tests for Map/Location                    |
+|     dvalen25            |     MileStone 4 Completed                             |   Add tests for Signup/Login/Logoff                    |
+|     shassa25           |     MileStone 4 Completed                             |      Add tests for Weather                 |
+|      yujiaq5            |      MileStone 4 Completed                            |   Add tests for Cities                    |
+|    ahwang22             |     MileStone 4 Completed                             |    Add tests for Cities                   |
+|     wenzl2             |      MileStone 4 Completed                            |     Add tests for Signup/Login/Logoff                  |
 </br>
 
 
 <b>Week 9</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: tvm3, aabhav2, mnn3, dvalen25, shassa25, yujiaq5, ahwang22, wenzl2
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Preparation for Espresso tests by looking at the documentation and slowly start working on the tests.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|     tvm3           |    Pre-readings done for Espresso tests                             |     Start working/assiting in all tests            |
+|     aabhav2           |   Pre-readings done for Espresso tests                               |     Start working on the assigned tests                   |
+|     mnn3             |       Pre-readings done for Espresso tests                           |   Start working on the assigned tests                      |
+|     dvalen25            |   Pre-readings done for Espresso tests                               |   Start working on the assigned tests                     |
+|     shassa25           |   Pre-readings done for Espresso tests                               |      Start working on the assigned tests                   |
+|      yujiaq5            |   Pre-readings done for Espresso tests                               |   Start working on the assigned tests                      |
+|    ahwang22             |     Pre-readings done for Espresso tests              |   Start working on the assigned tests                     |
+|     wenzl2             |      Pre-readings done for Espresso tests                            |    Start working on the assigned tests                   |
 </br>
 
 
 <b>Week 10</b>
 </br>
-Members present: List the NetID of the people who attended the meeting
+Members present: tvm3, aabhav2, mnn3, dvalen25, shassa25, yujiaq5, ahwang22, wenzl2
 </br>
-Meeting notes: Explain the overall team progress and a summary of discussion
+Meeting notes: Tests for Signup, Weather and Add City are done, verified their working. Now the remaining tests are distributed.
 </br>
 | NetID          | Progress from last week         | Tasks for next week   |
 | ---------------| --------------------------------| ----------------------|
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
-|                |                                 |                       |
+|     tvm3           |       Verifies the completed tests                          |     Make sure all tests are working as expected, assist in Login/Logoff tests              |
+|     aabhav2           |       Work in progress                           |     Add tests for Location                   |
+|     mnn3             |     Work in progress                             |   Add tests for Location                    |
+|     dvalen25            |      Work in progress                            |   Add tests for Login/Logoff                    |
+|     shassa25           |     Work in progress                             |      Verify tests for Weather                 |
+|      yujiaq5            |     Work in progress                             |   Add tests for Remove City                    |
+|    ahwang22             |     Add city test done                             |    Add tests for remove city                   |
+|     wenzl2             |      Signup Completed                            |     Assist in other tests                  |
 </br>
 
 
