@@ -42,7 +42,7 @@ public class LogoffTest {
     @Test
     public void testLogoff() {
         // Perform login actions
-        onView(withId(R.id.login_username)).perform(typeText("test_user100"), closeSoftKeyboard());
+        onView(withId(R.id.login_username)).perform(typeText("test_user99"), closeSoftKeyboard());
         onView(withId(R.id.login_password)).perform(typeText("pw"), closeSoftKeyboard());
         onView(withId(R.id.login_button)).perform(click());
 

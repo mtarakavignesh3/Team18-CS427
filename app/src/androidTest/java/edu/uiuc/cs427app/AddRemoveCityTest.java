@@ -48,7 +48,7 @@ public class AddRemoveCityTest {
         Intents.init();
 
         // Perform login actions
-        onView(withId(R.id.login_username)).perform(typeText("test_user100"), closeSoftKeyboard());
+        onView(withId(R.id.login_username)).perform(typeText("test_user99"), closeSoftKeyboard());
         onView(withId(R.id.login_password)).perform(typeText("pw"), closeSoftKeyboard());
         onView(withId(R.id.login_button)).perform(click());
     }
@@ -113,6 +113,12 @@ public class AddRemoveCityTest {
         onView(allOf(withId(R.id.cityName), withText("Seattle")))
                 .check(matches(isDisplayed()));
 
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         //Remove Seattle
         //onView(allOf(withId(R.id.button_delete), withText("Seattle"))).perform(click());
         onView(allOf(isDescendantOfA(withId(R.id.city_ListView)),
@@ -120,11 +126,6 @@ public class AddRemoveCityTest {
                 //hasSibling(withText("Seattle")),
                 withId(R.id.button_delete))).perform(click());
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
 
         onView(allOf(isDescendantOfA(withId(R.id.city_ListView)),
                 isDescendantOfA(withChild(withText("Seattle")))))

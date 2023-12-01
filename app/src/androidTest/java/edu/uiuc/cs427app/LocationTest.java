@@ -31,6 +31,11 @@ public class LocationTest {
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), MapDetailActivity.class);
         intent.putExtra("city", firstCity);
         ActivityScenario.launch(intent);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         onView(withId(R.id.CityName)).check(matches(withText(containsString(firstCity.toUpperCase()))));
         onView(withId(R.id.LatitudeAndLongitude)).check(matches(withText(containsString(latAndLon))));
     }
@@ -41,6 +46,11 @@ public class LocationTest {
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), MapDetailActivity.class);
         intent.putExtra("city", firstCity);
         ActivityScenario.launch(intent);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         onView(withId(R.id.CityName)).check(matches(withText(containsString(firstCity.toUpperCase()))));
         onView(withId(R.id.LatitudeAndLongitude)).check(matches(withText(containsString(latAndLon))));
     }

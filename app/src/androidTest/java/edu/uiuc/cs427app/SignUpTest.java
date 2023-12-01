@@ -54,7 +54,7 @@ public class SignUpTest {
     }
     @Test
     public void testUserSignup() {
-        String usernameTest = "test_user100";
+        String usernameTest = "test_user99";
         String passwordTest = "pw";
 
         // Test account does not exist yet

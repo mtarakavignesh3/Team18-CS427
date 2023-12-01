@@ -61,7 +61,7 @@ public class LoginTest {
 
     @Test
     public void testUserLogin() {
-        String usernameTest = "test_user100";
+        String usernameTest = "test_user99";
         String passwordTest = "pw";
 
         // Ensure the account exists before login
